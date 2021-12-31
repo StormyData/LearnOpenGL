@@ -22,6 +22,9 @@ target_link_libraries(CMakeTarget PUBLIC
                             "D:/OpenGL/lib/glfw3.lib"
                             "opengl32.lib"
                             GLAD
+                            SHADERS
+                            OBJECTS
+                            STB_IMAGE
                             )
 
 #install(TARGETS CMakeTarget Destination bin)
