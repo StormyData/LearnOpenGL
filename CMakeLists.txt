@@ -8,6 +8,13 @@ add_subdirectory(include/stb_image)
 add_subdirectory(src)
 add_subdirectory(shaders)
 
+if(CMAKE_SYSTEM MATCHES Windows)
+   message(STATUS "Target system is Windows")
+elseif(CMAKE_SYSTEM MATCHES Linux)
+   message(STATUS "Target system is Linux")
+    list(APPEND PLATFORM_LIBS glm)
+endif()
+
 
 add_executable(LearnOpenGL main.cpp)
 
@@ -19,7 +26,6 @@ target_link_libraries(LearnOpenGL
         GLAD
         SHADERS
         OBJECTS
-        ${EXTRA_LIBS}
-        glfw
-        glm
+        ${PLATFORM_LIBS}
+	    glfw
         )
